@@ -7,15 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed=10f;
-    private float movementX;
-    private float movementY;
     private bool jumping = false;
     public float jumpStrength=5f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-    void Update()
+    void FixedUpdate()
     {
         float inputX = Input.GetAxis("Horizontal");
         if (Input.GetButton("Horizontal")==true)
@@ -27,6 +25,9 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.transform.Translate(new Vector3(0, 0, inputZ * speed) * Time.deltaTime);
         }
+    }
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
         {
             rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
