@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.SocialPlatforms.Impl;
+
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed=10f;
     private bool jumping = false;
     public float jumpStrength=5f;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Manager.instance.gems = 0;
+        Manager.instance.SetGemCount();
     }
     void FixedUpdate()
     {
@@ -40,6 +47,12 @@ public class PlayerController : MonoBehaviour
     {
         jumping = false;
     }
-
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Gem"))
+        {
+            Manager.instance.gems += 1;
+            Manager.instance.SetGemCount();
+        }
+    }
 }
