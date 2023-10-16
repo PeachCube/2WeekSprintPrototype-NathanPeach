@@ -15,11 +15,13 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //declares variable "inputX", which gets its value from the player input. Pressing "a" = -x, pressing "d" = +x.
         float inputX = Input.GetAxis("Horizontal");
         if (Input.GetButton("Horizontal")==true)
         {
             gameObject.transform.Translate(new Vector3(inputX*speed,0,0) * Time.deltaTime);      
         }
+        //same as inputX but for the z axis instead.
         float inputZ = Input.GetAxis("Vertical");
         if (Input.GetButton("Vertical") == true)
         {
