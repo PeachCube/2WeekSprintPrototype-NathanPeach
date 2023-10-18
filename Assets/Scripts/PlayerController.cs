@@ -21,12 +21,13 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        float inputX = Input.GetAxis("Horizontal");
-        float inputZ = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(inputX, 0.0f, inputZ);
-
-        gameObject.transform.Translate(movement * speed* Time.deltaTime);
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        if (jumping == false)
+        {
+            gameObject.transform.Translate(movement * speed * Time.deltaTime);
+            if (movement.sqrMagnitude > 1.0f)
+                movement.Normalize();
+        }
         //declares variable "inputX", which gets its value from the player input. Pressing "a" = -x, pressing "d" = +x.
         //float inputX = Input.GetAxis("Horizontal");
         //if (Input.GetButton("Horizontal")==true)
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
         {
-            rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
+            rb.AddForce(Vector3.up*jumpStrength, ForceMode.Impulse);
             jumping = true;
         }
     }
@@ -61,6 +62,10 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("GemII"))
         {
             Manager.instance.SetGemCount(5);
+        }
+        if (other.CompareTag("GemIII"))
+        {
+            Manager.instance.SetGemCount(20);
         }
     }
 }

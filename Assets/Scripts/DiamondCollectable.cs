@@ -15,7 +15,7 @@ public class DiamondCollectable : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.Rotate(new Vector3(0,60,0)*Time.deltaTime);
+        gameObject.transform.Rotate(new Vector3(0,60,0)*Time.deltaTime,Space.World);
         transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time*0.2f, max - min)+ min , transform.position.z);
     }
     private void OnTriggerEnter(Collider player)

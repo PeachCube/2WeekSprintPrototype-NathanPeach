@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4324178559629757115}
   - component: {fileID: 3172432446116921946}
   - component: {fileID: 1130964726340330796}
-  - component: {fileID: 8709488745775697231}
   m_Layer: 0
   m_Name: Prism
   m_TagString: Gem
@@ -402,7 +401,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121955787679100816}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -479,18 +478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2525979674482277029, guid: 069cc6725692cbc48b7dab3755f0cef3, type: 3}
---- !u!122 &8709488745775697231
-Halo:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121955787679100816}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4278255430
-  m_Size: 0.25
 --- !u!1 &2961154215918018892
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +489,7 @@ GameObject:
   - component: {fileID: 674724099450369867}
   m_Layer: 0
   m_Name: GemI
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
