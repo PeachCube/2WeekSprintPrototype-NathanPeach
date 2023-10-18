@@ -10,7 +10,7 @@ public class CameraOffset : MonoBehaviour
     void Start()
     {
         //offset = transform.position - player.transform.position;
-        manualRotation.y = -90;
+        manualRotation.y = 180;
     }
     void Update()
     {
@@ -21,7 +21,7 @@ public class CameraOffset : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Mouse1))
         {
-        transform.Rotate(manualRotation * Time.deltaTime);
+        transform.Rotate(manualRotation * 1 * Time.deltaTime);
         }
     }
 }

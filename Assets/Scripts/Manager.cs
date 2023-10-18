@@ -7,7 +7,7 @@ using UnityEngine.ProBuilder.MeshOperations;
 public class Manager : MonoBehaviour
 {
     static public Manager instance = null;
-    public int gems;
+    public int gems = 0;
     public TextMeshProUGUI Gems;
 
 
@@ -26,8 +26,9 @@ public class Manager : MonoBehaviour
     {
         
     }
-    public void SetGemCount()
+    public void SetGemCount(int value)
     {
+        gems += value;
         Gems.text = "" + gems.ToString();
     }
 

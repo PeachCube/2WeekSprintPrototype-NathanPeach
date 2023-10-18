@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SocialPlatforms.Impl;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,23 +18,27 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Manager.instance.gems = 0;
-        Manager.instance.SetGemCount();
     }
     void FixedUpdate()
     {
-        //declares variable "inputX", which gets its value from the player input. Pressing "a" = -x, pressing "d" = +x.
         float inputX = Input.GetAxis("Horizontal");
-        if (Input.GetButton("Horizontal")==true)
-        {
-            gameObject.transform.Translate(new Vector3(inputX*speed,0,0) * Time.deltaTime);      
-        }
-        //same as inputX but for the z axis instead.
         float inputZ = Input.GetAxis("Vertical");
-        if (Input.GetButton("Vertical") == true)
-        {
-            gameObject.transform.Translate(new Vector3(0, 0, inputZ * speed) * Time.deltaTime);
-        }
+
+        Vector3 movement = new Vector3(inputX, 0.0f, inputZ);
+
+        gameObject.transform.Translate(movement * speed* Time.deltaTime);
+        //declares variable "inputX", which gets its value from the player input. Pressing "a" = -x, pressing "d" = +x.
+        //float inputX = Input.GetAxis("Horizontal");
+        //if (Input.GetButton("Horizontal")==true)
+        //{
+        //gameObject.transform.Translate(new Vector3(inputX*speed,0,0) * Time.smoothDeltaTime);      
+        //}
+        //same as inputX but for the z axis instead.
+        //float inputZ = Input.GetAxis("Vertical");
+        //if (Input.GetButton("Vertical") == true)
+        //{
+        //gameObject.transform.Translate(new Vector3(0, 0, inputZ * speed) * Time.smoothDeltaTime);
+        //}
     }
     private void Update()
     {
@@ -51,8 +56,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Gem"))
         {
-            Manager.instance.gems += 1;
-            Manager.instance.SetGemCount();
+            Manager.instance.SetGemCount(1);
+        }
+        if (other.CompareTag("GemII"))
+        {
+            Manager.instance.SetGemCount(5);
         }
     }
 }
