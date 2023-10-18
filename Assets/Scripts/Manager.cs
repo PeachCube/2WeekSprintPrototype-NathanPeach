@@ -13,6 +13,7 @@ public class Manager : MonoBehaviour
 
     void Awake()
     {
+        SetGemCount(0);
         if (instance == null)
             instance = this;
         else if (instance != this)
