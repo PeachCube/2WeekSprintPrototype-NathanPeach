@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour
     public float speed=10f;
     private bool jumping = false;
     public float jumpStrength=5f;
-    
+    public AudioSource gemSFX;
+
     void Start()
     {
+        gemSFX = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
     void FixedUpdate()
@@ -58,14 +60,17 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Gem"))
         {
             Manager.instance.SetGemCount(1);
+            gemSFX.Play(0);
         }
         if (other.CompareTag("GemII"))
         {
             Manager.instance.SetGemCount(5);
+            gemSFX.Play(0);
         }
         if (other.CompareTag("GemIII"))
         {
             Manager.instance.SetGemCount(20);
+            gemSFX.Play(0);
         }
     }
 }
