@@ -2555,6 +2555,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8286409762503728334, guid: 62013b02b1e16a34f907c4dd9917cdea, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 716964393}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2902,6 +2906,11 @@ Skybox:
   m_GameObject: {fileID: 716964388}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!20 &716964393 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7983851580309320592, guid: 069cc6725692cbc48b7dab3755f0cef3, type: 3}
+  m_PrefabInstance: {fileID: 2047330257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &720730173
 GameObject:
   m_ObjectHideFlags: 0
