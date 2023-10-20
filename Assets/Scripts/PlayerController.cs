@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SocialPlatforms.Impl;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerController : MonoBehaviour
 {
