@@ -122,7 +122,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d5c9fc287a2aa945a98203d41282923, type: 2}
+  - {fileID: 2100000, guid: 5bb30d648f3545743a8b376a8876877a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   rb: {fileID: 8527933728215767222}
   speed: 5
   jumpStrength: 5
+  gemSFX: {fileID: 0}
 --- !u!114 &1620659613976300804
 MonoBehaviour:
   m_ObjectHideFlags: 0

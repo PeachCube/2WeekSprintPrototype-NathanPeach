@@ -45,11 +45,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
-        {
-            rb.AddForce(Vector3.up*jumpStrength, ForceMode.Impulse);
-            jumping = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
+        //{
+            //rb.AddForce(Vector3.up*jumpStrength, ForceMode.Impulse);
+            //jumping = true;
+        //}
     }
     private void OnCollisionEnter(Collision collision)
     {
