@@ -10,7 +10,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
-    public float speed=10f;
+    public float speed=5f;
     private bool jumping = false;
     public float jumpStrength=5f;
     public AudioSource gemSFX;
@@ -43,11 +43,20 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        speed = 5;
         if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
         {
             rb.AddForce(Vector3.up*jumpStrength, ForceMode.Impulse);
             jumping = true;
         }
+        if (Input.GetKey(KeyCode.LeftShift) && jumping == false)
+        {
+            speed = 10;
+        }
+            else
+            {
+            speed = 5;
+            }
     }
     private void OnCollisionEnter(Collision collision)
     {
