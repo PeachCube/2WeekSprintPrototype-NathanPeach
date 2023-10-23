@@ -23,9 +23,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        if (jumping == false)
         {
-            gameObject.transform.Translate(movement * speed * Time.deltaTime);
+            gameObject.transform.Translate(movement * speed * Time.smoothDeltaTime);
             if (movement.sqrMagnitude > 1.0f)
                 movement.Normalize();
         }
@@ -44,11 +43,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
-        //{
-            //rb.AddForce(Vector3.up*jumpStrength, ForceMode.Impulse);
-            //jumping = true;
-        //}
+        if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
+        {
+            rb.AddForce(Vector3.up*jumpStrength, ForceMode.Impulse);
+            jumping = true;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
