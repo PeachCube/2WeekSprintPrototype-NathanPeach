@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CameraOffset : MonoBehaviour
 {
-    public GameObject player;
-    //private Vector3 offset;
     private Vector3 manualRotation;
     void Start()
     {
