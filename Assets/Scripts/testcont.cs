@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class testcont : MonoBehaviour
 {
-    private Vector3 manualRotation;
     CharacterController Mover;
     public float speed;
     public AudioSource gemSFX;
     private bool jumping;
-    private bool running;
+    private float runSpeed;
     void Start()
     {
+        runSpeed = speed + 3;
         gemSFX = GetComponent<AudioSource>();
         Mover = GetComponent<CharacterController>();
     }
@@ -21,16 +22,21 @@ public class testcont : MonoBehaviour
         Vector3 Zmove = transform.right * Input.GetAxis("Horizontal") * Time.deltaTime;
         Vector3 Ymove = new Vector3(0, gameObject.transform.position.y + Manager.instance.gravity, 0);
         Mover.Move(((Xmove + Zmove) * speed) + Ymove * Time.deltaTime);
-        
-        if (Input.GetKey(KeyCode.Mouse0))
+
+        if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
         {
-            transform.Rotate(manualRotation * -1 * Time.deltaTime);
+            
+            jumping = true;
         }
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Mover.collisionFlags == CollisionFlags.Below)
         {
-            transform.Rotate(manualRotation * 1 * Time.deltaTime);
+            
+            jumping = false;
         }
-    
+        if (Input.GetKey(KeyCode.LeftShift) && (jumping == false))
+        {
+            speed = runSpeed;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

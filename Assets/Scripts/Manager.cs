@@ -10,10 +10,11 @@ public class Manager : MonoBehaviour
     public int gems = 0;
     public TextMeshProUGUI Gems;
     public float gravity;
-
+    //in the inspector, gravity is set to -9.81. In-game, nothing that uses "gravity" from the
+    //manager script accelerates, and this isn't how gravity works in real life, but I'm fine with
+    //how I have this set up for now.
     void Awake()
     {
-        SetGemCount(0);
         if (instance == null)
             instance = this;
         else if (instance != this)
@@ -21,7 +22,7 @@ public class Manager : MonoBehaviour
     }
     void Start()
     {
-        
+        SetGemCount(0);
     }
     void Update()
     {

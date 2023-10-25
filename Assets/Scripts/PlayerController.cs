@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public float jumpStrength=10f;
     public AudioSource gemSFX;
     private Vector3 velocity;
-    private float maxspeed = 5f;
     void Start()
     {
         gemSFX = GetComponent<AudioSource>();

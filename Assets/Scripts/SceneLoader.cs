@@ -6,16 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public int bIndex;
-    
-    void Update()
+    private void Start()
     {
-    
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag ("Player"))
-        {
-            SceneManager.LoadScene(bIndex);
-        }
+        SceneManager.LoadScene(bIndex);
     }
 }
