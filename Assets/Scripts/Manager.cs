@@ -9,7 +9,7 @@ public class Manager : MonoBehaviour
     static public Manager instance = null;
     public int gems = 0;
     public TextMeshProUGUI Gems;
-
+    public float gravity;
 
     void Awake()
     {

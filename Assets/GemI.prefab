@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 674724099450369867}
   m_Layer: 0
   m_Name: GemI
-  m_TagString: Gem
+  m_TagString: GemI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,10 +45,10 @@ GameObject:
   - component: {fileID: 5246467608294849221}
   - component: {fileID: 6403390491072563565}
   - component: {fileID: 3139858441899410683}
-  - component: {fileID: 1719527106596438941}
+  - component: {fileID: 8878922244311064393}
   m_Layer: 0
   m_Name: Prism
-  m_TagString: Gem
+  m_TagString: GemI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,7 +497,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &1719527106596438941
+--- !u!114 &8878922244311064393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -509,4 +509,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99e70b770717c647bb4d12ae562843f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2525979674482277029, guid: 069cc6725692cbc48b7dab3755f0cef3, type: 3}
+  value: 1

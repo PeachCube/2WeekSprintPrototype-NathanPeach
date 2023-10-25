@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 5728869852595573371}
   - component: {fileID: 4934563536224644489}
   - component: {fileID: 955628670859181167}
+  - component: {fileID: 6843352503002639562}
   - component: {fileID: 2009058206283403931}
   - component: {fileID: 6617022456926708684}
-  - component: {fileID: 2534333758110645662}
   m_Layer: 0
   m_Name: Cube
   m_TagString: GemII
@@ -563,6 +563,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6843352503002639562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8877134968717046950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99e70b770717c647bb4d12ae562843f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 5
 --- !u!33 &2009058206283403931
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -593,16 +606,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &2534333758110645662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8877134968717046950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99e70b770717c647bb4d12ae562843f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2525979674482277029, guid: 069cc6725692cbc48b7dab3755f0cef3, type: 3}

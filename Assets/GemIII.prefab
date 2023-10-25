@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 972632403417099681}
   - component: {fileID: 804725984022586006}
   - component: {fileID: 2691107107795206727}
+  - component: {fileID: 7727092546448486100}
   - component: {fileID: 5832107643666309721}
   - component: {fileID: 7563598865338483195}
-  - component: {fileID: 447294754630952512}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: GemIII
@@ -1345,6 +1345,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7727092546448486100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7196129789859745329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99e70b770717c647bb4d12ae562843f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 20
 --- !u!33 &5832107643666309721
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1375,16 +1388,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &447294754630952512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7196129789859745329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99e70b770717c647bb4d12ae562843f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2525979674482277029, guid: 069cc6725692cbc48b7dab3755f0cef3, type: 3}

@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiamondCollectable : MonoBehaviour
+public class GemScript : MonoBehaviour
 {
-    public GameObject player;
     private float min;
     private float max;
+    public int value;
     void Start()
     {
         min = gameObject.transform.position.y;
         max = gameObject.transform.position.y + 0.25f;
     }
-
     void Update()
     {
         gameObject.transform.Rotate(new Vector3(0,60,0)*Time.deltaTime,Space.World);
@@ -20,6 +19,10 @@ public class DiamondCollectable : MonoBehaviour
     }
     private void OnTriggerEnter(Collider player)
     {
-        gameObject.SetActive(false);
+        if (player.CompareTag("Player"))
+        {
+            Manager.instance.SetGemCount(value);
+            gameObject.SetActive(false);
+        }
     }
 }

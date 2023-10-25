@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ver. 2.03
+  m_text: Ver. 2.05
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gems: 0
   Gems: {fileID: 5959625813117382517}
+  gravity: -9.81
 --- !u!1 &6266120113604559421
 GameObject:
   m_ObjectHideFlags: 0
