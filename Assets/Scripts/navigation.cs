@@ -11,9 +11,12 @@ public class navigation : MonoBehaviour
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
     }
-
     void Update()
     {
         agent.destination = goal.position;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        
     }
 }

@@ -23,6 +23,10 @@ public class testcont : MonoBehaviour
         Vector3 Ymove = new Vector3(0, gameObject.transform.position.y + Manager.instance.gravity, 0);
         Mover.Move(((Xmove + Zmove) * speed) + Ymove * Time.deltaTime);
 
+        //if (Xmove + Zmove >= )
+        //{
+
+        //}
         if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
         {
             
