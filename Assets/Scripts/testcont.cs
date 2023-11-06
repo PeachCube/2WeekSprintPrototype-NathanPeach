@@ -10,6 +10,7 @@ public class testcont : MonoBehaviour
     public AudioSource gemSFX;
     private bool jumping;
     private float runSpeed;
+    public float jumpStrength = 2f;
     void Start()
     {
         runSpeed = speed + 3;
@@ -18,23 +19,20 @@ public class testcont : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && (jumping == false))
+        {
+            jumping = true;
+        }
+        
+        jumping = false;
         Vector3 Xmove = transform.forward * Input.GetAxis("Vertical") * Time.deltaTime;
         Vector3 Zmove = transform.right * Input.GetAxis("Horizontal") * Time.deltaTime;
         Vector3 Ymove = new Vector3(0, gameObject.transform.position.y + Manager.instance.gravity, 0);
+        
         Mover.Move(((Xmove + Zmove) * speed) + Ymove * Time.deltaTime);
 
-        //if (Xmove + Zmove >= )
-        //{
-
-        //}
-        if (Input.GetKeyDown(KeyCode.Space) && jumping == false)
-        {
-            
-            jumping = true;
-        }
         if (Mover.collisionFlags == CollisionFlags.Below)
         {
-            
             jumping = false;
         }
         if (Input.GetKey(KeyCode.LeftShift) && (jumping == false))
