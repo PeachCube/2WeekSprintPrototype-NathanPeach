@@ -8,9 +8,12 @@ public class testcont : MonoBehaviour
     CharacterController Mover;
     public float speed;
     public AudioSource gemSFX;
-    private bool jumping;
     private float runSpeed;
     public float jumpStrength = 2f;
+    Vector3 Xmove;
+    Vector3 Zmove;
+    Vector3 Ymove;
+    private bool grounded;
     void Start()
     {
         runSpeed = speed + 3;
@@ -19,27 +22,36 @@ public class testcont : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && (jumping == false))
-        {
-            jumping = true;
-        }
+        grounded = Mover.isGrounded;
+        Xmove = transform.forward * Input.GetAxis("Vertical");
+        Zmove = transform.right * Input.GetAxis("Horizontal");
+        Ymove.y += Manager.instance.gravity * Time.deltaTime;
         
-        jumping = false;
-        Vector3 Xmove = transform.forward * Input.GetAxis("Vertical") * Time.deltaTime;
-        Vector3 Zmove = transform.right * Input.GetAxis("Horizontal") * Time.deltaTime;
-        Vector3 Ymove = new Vector3(0, gameObject.transform.position.y + Manager.instance.gravity, 0);
+        Mover.Move(speed * Time.deltaTime * (Xmove + Zmove));
+        //constantly moving the player. When movement inputs are detected, Xmove and Zmove change
+        //their values which causes the player to move since the values inside the Move() function have changed.
         
-        Mover.Move(((Xmove + Zmove) * speed) + Ymove * Time.deltaTime);
-
-        if (Mover.collisionFlags == CollisionFlags.Below)
+        if (grounded && Ymove.y < 0)
         {
-            jumping = false;
+            Ymove.y = 0;
         }
-        if (Input.GetKey(KeyCode.LeftShift) && (jumping == false))
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            Ymove.y += Mathf.Sqrt(-jumpStrength * Manager.instance.gravity);
+        }
+        Mover.Move(Ymove * Time.deltaTime);
+        //constantly applying gravity to the player. When a jump input is detected, the value of Ymove changes,
+        //cancelling out the force of gravity and allowing the player to move upwards.
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = runSpeed;
         }
+        else
+        {
+            speed = runSpeed - 3;
+        }
     }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("GemI"))
