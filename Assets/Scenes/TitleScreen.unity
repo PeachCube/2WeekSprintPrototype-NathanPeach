@@ -1798,6 +1798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gems: 0
   Gems: {fileID: 0}
+  gravity: 0
 --- !u!114 &3050907708572418846
 MonoBehaviour:
   m_ObjectHideFlags: 0
