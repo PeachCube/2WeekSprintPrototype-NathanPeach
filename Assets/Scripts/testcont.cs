@@ -6,10 +6,10 @@ using UnityEngine;
 public class testcont : MonoBehaviour
 {
     CharacterController Mover;
-    public float speed;
+    [SerializeField] private float speed;
     public AudioSource gemSFX;
     private float runSpeed;
-    public float jumpStrength = 2f;
+    [SerializeField] private float jumpStrength = 4f;
     Vector3 Xmove;
     Vector3 Zmove;
     Vector3 Ymove;
@@ -19,6 +19,13 @@ public class testcont : MonoBehaviour
         runSpeed = speed + 3;
         gemSFX = GetComponent<AudioSource>();
         Mover = GetComponent<CharacterController>();
+    }
+    private void FixedUpdate()
+    {
+        if (grounded && Ymove.y < 0)
+        {
+            Ymove.y = 0;
+        }
     }
     void Update()
     {
@@ -31,11 +38,8 @@ public class testcont : MonoBehaviour
         //constantly moving the player. When movement inputs are detected, Xmove and Zmove change
         //their values which causes the player to move since the values inside the Move() function have changed.
         
-        if (grounded && Ymove.y < 0)
-        {
-            Ymove.y = 0;
-        }
-        if (Input.GetButtonDown("Jump") && grounded)
+        
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             Ymove.y += Mathf.Sqrt(-jumpStrength * Manager.instance.gravity);
         }
